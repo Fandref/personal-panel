@@ -1,4 +1,7 @@
-# person-panel
+# Особистий кабінет команди з розробки [BETA DEMO]
+
+
+## Обережно, не адаптовано під екрани шириною менше 1166px
 
 ## Project setup
 ```
@@ -15,5 +18,3 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
