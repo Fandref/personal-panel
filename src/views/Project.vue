@@ -13,7 +13,11 @@
           </div>
         </div>
         <div class="right-column">
-          <tasks-list :tasks="project.tasks" @changed="updateTask"/>
+          <div class="task-container">
+            <h3>Список завдань</h3>
+            <tasks-list :tasks="project.tasks" @changed="updateTask"/>
+          </div>
+          
         </div>
       </div>
       
@@ -25,7 +29,7 @@
 
 <script>
 // Тут щось не зрозуміле твориться
-// Я дуже довго, різними шляхами змусити це запрацювати норм,
+// Я дуже довго, різними шляхами змусити це запрацювати нормально,
 // але ніяк не вдалося ... Тому на цій сторінці тількі так(
 
 import PageContainer from '../components/PageContainer.vue'
@@ -86,8 +90,18 @@ import MemderTeamItem from '../components/memberTeam/MemderTeamItem.vue'
 }
 .right-column{
   flex: 0 0 35%;
-  padding-right: 40px;
+  padding-left: 40px;
   box-sizing: border-box;
+}
+.task-container{
+  padding: 20px 20px;
+  background: #fff;
+  position: sticky;
+  top: 30px;
+  border-radius: var(--m-border-radius);
+}
+.task-container h3{
+  margin-bottom: 14px;
 }
 article{
   margin-bottom: 40px;
