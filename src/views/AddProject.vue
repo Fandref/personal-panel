@@ -114,18 +114,22 @@ import PrimaryButton from '../components/UI/buttons/PrimaryButton.vue'
                 }
                 if(this.description.length < 20){
                     this.errorDescription = 'Опишіть проєкт'
+                    this.errorName = ''
                     this.$refs.projectDescription.focus()
                     return
                 }
                 if(this.tasks.length == 0){
                     this.errorTask = 'Додайте завдання для проєкту'
+                    this.errorDescription = ''
                     this.$refs.projectTask.focus()
                     return
                 }
                 if(this.members.length == 0){
+                    this.errorTask = ''
                     this.errorMembers = 'Вкажіть хто буде працювати над проєктом'
                     return
                 }
+                this.errorMembers = ''
                 this.setProject({
                     name: this.name,
                     description: this.description,

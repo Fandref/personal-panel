@@ -26,5 +26,7 @@ import PariCheckBox from './UI/PariCheckBox.vue'
 </script>
 
 <style scoped>
-
+    .tasks-list li{
+        margin-bottom: 10px; 
+    }
 </style>
