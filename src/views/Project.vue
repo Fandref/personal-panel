@@ -7,15 +7,18 @@
           <article>
             {{project.description}}
           </article>
-          <div>
+          
+          <div class="members-block">
             <h3 style="margin: 16px">Над проєктом працюють:</h3>
             <memder-team-item style="background: transparent" v-for="member in project.members" :key="member.id" :name="member.name" :position="member.position" />
           </div>
+          
         </div>
         <div class="right-column">
           <div class="task-container">
             <h3>Список завдань</h3>
-            <tasks-list :tasks="project.tasks" @changed="updateTask"/>
+            <tasks-list class="task-content" :tasks="project.tasks" @changed="updateTask"/>
+            <project-progress :tasks="project.tasks" />
           </div>
           
         </div>
@@ -28,10 +31,6 @@
 </template>
 
 <script>
-// Тут щось не зрозуміле твориться
-// Я дуже довго, різними шляхами змусити це запрацювати нормально,
-// але ніяк не вдалося ... Тому на цій сторінці тількі так(
-
 import PageContainer from '../components/PageContainer.vue'
 import ProjectProgress from '../components/ProjectProgress.vue'
 import TasksList from '../components/TasksList.vue'
@@ -45,11 +44,13 @@ import MemderTeamItem from '../components/memberTeam/MemderTeamItem.vue'
         
         }
       },
+      beforeMount() {
         
-    mounted(){
+        console.log('e')
         this.loadProject(parseInt(this.$route.params.id))   
         this.loadTeam()
         
+     
       },
       computed: {
         ...mapState({
@@ -103,8 +104,14 @@ import MemderTeamItem from '../components/memberTeam/MemderTeamItem.vue'
 .task-container h3{
   margin-bottom: 14px;
 }
+.task-content{
+  margin-bottom: 30px;
+}
 article{
   margin-bottom: 40px;
+}
+.members-block{
+  margin-top: 30px;
 }
 
 </style>

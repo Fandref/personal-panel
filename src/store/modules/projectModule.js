@@ -57,7 +57,7 @@ export const projectModule = {
         updateProjectTask({commit, dispatch}, projectData){
             commit("updateProjectTask", projectData)
 
-            dispatch('saveProjects')
+            dispatch('saveProject')
 
         }
         
